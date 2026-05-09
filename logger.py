@@ -2,8 +2,9 @@ import logging
 
 class Logger:
     """Custom logger class"""
-    def __init__(self, filename='applicationlog.log'):
+    def __init__(self):
         # Creating an object
+        self.filename = 'app.log'
         self.logger = logging.getLogger(__name__)
         # Setting the threshold of logger to DEBUG
         self.logger.setLevel(logging.DEBUG)
@@ -17,7 +18,7 @@ class Logger:
             stream_handler.setFormatter(stream_formatter)
 
             # FileHandler for logging to a file
-            file_handler = logging.FileHandler(filename)
+            file_handler = logging.FileHandler(self.filename)
             file_handler.setLevel(logging.DEBUG)
             file_formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
             file_handler.setFormatter(file_formatter)
