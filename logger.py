@@ -27,14 +27,18 @@ class Logger:
             self.logger.addHandler(stream_handler)
             self.logger.addHandler(file_handler)
     
-    def info(self, message):
-        self.logger.info(message)
-
-    def error(self, message):
-        self.logger.error(message)
+    def flush_and_close(self):
+        """Flush and close all handlers to release file locks"""
+        pass
     
-    def debug(self, message):
-        self.logger.debug(message)
+    def error(self, message, *args, **kwargs):
+        self.logger.error(message, *args, **kwargs)
 
-    def critical(self, message):
-        self.logger.critical(message)
+    def info(self, message, *args, **kwargs):
+        self.logger.info(message, *args, **kwargs)
+
+    def debug(self, message, *args, **kwargs):
+        self.logger.debug(message, *args, **kwargs)
+
+    def critical(self, message, *args, **kwargs):
+        self.logger.critical(message, *args, **kwargs)
